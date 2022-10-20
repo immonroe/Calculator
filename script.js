@@ -1,19 +1,17 @@
-const add = function(x,y) {
+const add = (x,y) => {
     return x + y;
   };
   
-const subtract = function(x,y) {
+const subtract = (x,y) => {
       return x - y;
   };
 
-  const multiply = function(array) {
-    var sum=1;
-      for (var i=0; i<array.length; i++) {
-          sum = sum * array[i];
-      } 
-      return sum;
+  const multiply = (x,y) => {
+    return x * y;
   };
 
-const divide = function(x,y) {
+const divide = (x,y) => {
     return x / y;
 };
+
+// Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
