@@ -14,6 +14,6 @@ const subtract = function(x,y) {
       return sum;
   };
 
-const divide = function() {
-    
+const divide = function(x,y) {
+    return x / y;
 };
