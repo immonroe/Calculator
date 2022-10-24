@@ -1,0 +1,20 @@
+.calculator {
+    border: 1px solid black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 475px;
+  }
+
+.calculator-screen {
+    width: 98%;
+    height: 50px;
+    font-size: 3rem;
+    background-color: rgb(61, 61, 61);
+    color: rgb(255, 255, 255);
+    text-align: right;
+    border: none;
+    padding: 10px 5px 0;
+}
