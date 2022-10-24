@@ -21,9 +21,7 @@ function calculate(x, y, operate) {
       '+': function (a, b) { return a + b },
       '-': function (a, b) { return a - b },
       '*': function (a, b) { return a * b },
-      '/': function (a, b) { return a / b },
-      '%': function (a, b) { return a % b },
-      '**': function (a, b) { return a ** b }
+      '/': function (a, b) { return a / b }
     }
   
     return operate in operators ? operators[operate](x, y) : NaN
