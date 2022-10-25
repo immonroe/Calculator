@@ -1,3 +1,5 @@
+// basic operators for calculator
+
 const add = (x,y) => {
     return x + y;
   };
@@ -26,3 +28,7 @@ function calculate(x, y, operate) {
   
     return operate in operators ? operators[operate](x, y) : NaN
   }
+
+// Create the functions that populate the display when you click the number buttons.
+// You should be storing the ‘display value’ in a variable somewhere for use in the next step.
+
