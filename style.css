@@ -29,7 +29,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  
   font-family: sans-serif;
 }
 
@@ -40,7 +40,7 @@ body {
   min-height: 100vh;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
-  gap: 10px;
+  gap: 0.5rem;
 }
 
 .two-cols {
@@ -70,11 +70,11 @@ body {
   border: 1px solid #4289a7;
   opacity: 80%;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   align-items: flex-end;
-  padding: 10px;
-  padding-top: 39px;
-  padding-bottom: 5px;
+  padding: 15px 10px;
+  /* padding-top: 39px; */
   border-radius: 5px;
 }
 
@@ -83,6 +83,6 @@ body {
 }
 
 .calculator-screen .current-operand {
-  font-size: 2.5rem;
-  padding-top: 7px;
+  font-size: 3rem;
+  padding-top: 5px;
 }
