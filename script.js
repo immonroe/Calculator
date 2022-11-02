@@ -32,18 +32,16 @@
 
 // // Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
 
-// function operate(num1, num2, operator) {
-//     switch (operator) {
-//       case "+":
-//         return add(num1, num2);
-//       case "-":
-//         return subtract(num1, num2);
-//       case "*":
-//         return multiply(num1, num2);
-//       case "/":
-//         return divide(num1, num2);
+// function calculate(x, operator, y) {
+//     var operators = {
+//       '+': function (a, b) { return a + b },
+//       '-': function (a, b) { return a - b },
+//       '*': function (a, b) { return a * b },
+//       '/': function (a, b) { return a / b }
 //     }
-//   };
+  
+//     return operate in operators ? operators[operate](x, y) : NaN
+//   }
 
 // // Create the functions that populate the display when you click the number buttons.
 // // You should be storing the ‘display value’ in a variable somewhere for use in the next step.
@@ -101,32 +99,33 @@ const deleteButton = document.querySelector('.delete')
 const showResult = document.querySelector('.result');
 const currentOperand = document.querySelector('.current-operand');
 const previousOperand = document.querySelector('.previous-operand');
-const equalsKey = document.querySelector('.equals-sign');
+const equalsKey = document.querySelector('.equals-key');
 
 currentOperand.textContent = ' ';
 previousOperand.textContent = ' ';
 
-// Sum of a, b ... 
+// Add... 
 function add(a, b) {
   return a + b;
 };
 
-// Subtraction of a and b ...
+// Subtract...
 function subtract(a, b) {
   return a - b;
 };
 
-// Multiply a, b ... 
+// Multiply... 
 function multiply(a, b) {
   return a * b;
 };
 
-// Divide a,b ... 
+// Divide... 
 function divide(a, b) {
   return a / b;
 };
 
 // Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
+
 function operate(num1, num2, operator) {
   switch (operator) {
     case "+":
