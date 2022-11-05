@@ -96,3 +96,15 @@ function displayResult() {
   storedNumber = result;
   console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
 }
+
+// Clear button
+function clearOutput(){
+    let outputScreen=document.getElementById("output");
+    outputScreen.value=" ";
+}
+
+// Delete button
+function del(){
+    let outputScreen=document.getElementById("output");
+    outputScreen.value=outputScreen.value.slice(0,-1);
+}
