@@ -94,17 +94,17 @@ function displayResult() {
   currentOperand.textContent = result;
   previousOperand.textContent = firstNumber + ' ' + clickedOperator + ' ' + storedNumber;
   storedNumber = result;
-  console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
+//   console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
 }
 
 // Clear button
 function clearOutput(){
-    let outputScreen=document.getElementById("output");
+    let outputScreen=document.getElementById("output"); // Create id for output
     outputScreen.value=" ";
 }
 
 // Delete button
 function del(){
-    let outputScreen=document.getElementById("output");
+    let outputScreen=document.getElementById("output"); // Create id for output
     outputScreen.value=outputScreen.value.slice(0,-1);
 }
