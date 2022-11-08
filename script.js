@@ -99,12 +99,12 @@ function displayResult() {
 
 // Clear button
 function clearOutput(){
-    let outputScreen=document.getElementById("output"); // Create id for output
-    outputScreen.value=" ";
+    let outputScreen = document.getElementsByClassName(".clear");
+    currentOperand.value=" ";
 }
 
 // Delete button
 function del(){
-    let outputScreen=document.getElementById("output"); // Create id for output
-    outputScreen.value=outputScreen.value.slice(0,-1);
+    let outputScreen=document.querySelector(".delete");
+    currentOperand.textContent = currentOperand.textContent.slice(0,-1);
 }
