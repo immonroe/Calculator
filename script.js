@@ -1,6 +1,6 @@
 // DOM 
-const numberButton = document.querySelectorAll('.number');
-const operatorButton = document.querySelectorAll('.operator');
+const numberButtons = document.querySelectorAll('.number');
+const operatorButtons = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.clear');
 const deleteButton = document.querySelector('.delete')
 const showResult = document.querySelector('.result');
@@ -58,14 +58,14 @@ let result = '';
 currentOperand.textContent = 0;
 
 
-numberButton.forEach((number) => {
+numberButtons.forEach((number) => {
   number.addEventListener('click', function() {
     storedNumber += number.value;
     currentOperand.textContent = storedNumber;
   })
 });
 
-operatorButton.forEach((operator => {
+operatorButtons.forEach((operator => {
   operator.addEventListener('click', function() {
     if (firstNumber && storedNumber) {
       displayResult();
@@ -88,6 +88,14 @@ equalsKey.addEventListener('click', function() {
   displayResult();
 });
 
+deleteButton.addEventListener('click', function() {
+    del();
+  });
+
+  clearButton.addEventListener('click', function() {
+    clearOutput();
+  });
+
 function displayResult() {
   result = operate(parseFloat(firstNumber), parseFloat(storedNumber), clickedOperator)
   // update content of current operation with result and previous operand with the calculation, make storedNumber = result
@@ -97,14 +105,14 @@ function displayResult() {
 //   console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
 }
 
-// Clear button
-function clearOutput(){
-    let outputScreen = document.getElementsByClassName(".clear");
-    currentOperand.value=" ";
-}
-
 // Delete button
 function del(){
-    let outputScreen=document.querySelector(".delete");
-    currentOperand.textContent = currentOperand.textContent.slice(0,-1);
-}
+    storedNumber = currentOperand.textContent.slice(0,currentOperand.textContent.length-1);
+    currentOperand.textContent = storedNumber;
+};
+
+// Clear button
+function clearOutput(){
+    currentOperand.textContent= 0;
+    storedNumber = ' ';
+};
