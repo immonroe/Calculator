@@ -111,8 +111,16 @@ function del(){
     currentOperand.textContent = storedNumber;
 };
 
-// Clear button
+// Clear button... Pressing “clear” should wipe out any existing data.. make sure the user is really starting fresh after pressing “clear”
 function clearOutput(){
     currentOperand.textContent= 0;
     storedNumber = ' ';
 };
+
+// You should round answers with long decimals so that they don’t overflow the screen.
+
+
+// Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
+
+
+// Keyboard support
