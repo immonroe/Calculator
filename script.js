@@ -79,7 +79,7 @@ operatorButtons.forEach((operator => {
     storedNumber = '';
 
     console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
-    console.log(clickedOperator);
+    // console.log(clickedOperator);
 
   })
 }));
