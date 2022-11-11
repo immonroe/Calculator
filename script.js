@@ -103,7 +103,6 @@ function displayResult() {
   previousOperand.textContent = firstNumber + ' ' + clickedOperator + ' ' + storedNumber;
   storedNumber = result;
 //   console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
-    console.log(result)
 };
 
 // Delete button
@@ -120,7 +119,9 @@ function clearOutput(){
 };
 
 // You should round answers with long decimals so that they don’t overflow the screen.
-
+// currentOperand.textContent.length
+// previousOperand.textContent.length
+// .toFixed()
 
 // Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
 
