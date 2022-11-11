@@ -48,7 +48,7 @@ function operate(num1, num2, operator) {
 };
 
 //Create the functions that populate the display when you click the 
-//number buttons… you should be storing the ‘display value’ in a variable somewhere 
+//number buttons… you should be storing the ‘display value’ in a variable somewhere
 //for use in the next step.
 
 let storedNumber = '';
@@ -78,7 +78,7 @@ operatorButtons.forEach((operator => {
     previousOperand.textContent = storedNumber + clickedOperator;
     storedNumber = '';
 
-    console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
+    // console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
     // console.log(clickedOperator);
 
   })
@@ -103,7 +103,8 @@ function displayResult() {
   previousOperand.textContent = firstNumber + ' ' + clickedOperator + ' ' + storedNumber;
   storedNumber = result;
 //   console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
-}
+    console.log(result)
+};
 
 // Delete button
 function del(){
@@ -113,7 +114,8 @@ function del(){
 
 // Clear button... Pressing “clear” should wipe out any existing data.. make sure the user is really starting fresh after pressing “clear”
 function clearOutput(){
-    currentOperand.textContent= 0;
+    currentOperand.textContent= ' ';
+    previousOperand.textContent= ' ';
     storedNumber = ' ';
 };
 
