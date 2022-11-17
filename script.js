@@ -8,9 +8,6 @@ const currentOperand = document.querySelector('.current-operand');
 const previousOperand = document.querySelector('.previous-operand');
 const equalsKey = document.querySelector('.equals-key');
 
-currentOperand.textContent = ' ';
-previousOperand.textContent = ' ';
-
 // Add... 
 function add(a, b) {
   return a + b;
@@ -51,10 +48,11 @@ function operate(num1, num2, operator) {
 //number buttons… you should be storing the ‘display value’ in a variable somewhere
 //for use in the next step.
 
-let storedNumber = '';
+let storedNumber = ''; // stored numbers are giving an error when trying to add operators to them to make new calculations
 let clickedOperator = ''
 let firstNumber = '';
 let result = '';
+previousOperand.textContent = ' ';
 currentOperand.textContent = 0;
 
 
@@ -102,7 +100,7 @@ function displayResult() {
   currentOperand.textContent = result;
   previousOperand.textContent = firstNumber + ' ' + clickedOperator + ' ' + storedNumber;
   storedNumber = result;
-//   console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
+  console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
 };
 
 // Delete button
@@ -113,7 +111,7 @@ function del(){
 
 // Clear button... Pressing “clear” should wipe out any existing data.. make sure the user is really starting fresh after pressing “clear”
 function clearOutput(){
-    currentOperand.textContent= ' ';
+    currentOperand.textContent= 0;
     previousOperand.textContent= ' ';
     storedNumber = ' ';
 };
