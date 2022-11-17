@@ -57,26 +57,33 @@ let firstNumber = '';
 let result = '';
 previousOperand.textContent = ' ';
 currentOperand.textContent = 0;
+let calculationInProgress = false;
 
 
 numberButtons.forEach((number) => {
   number.addEventListener('click', function() {
-    storedNumber += number.value;
-    currentOperand.textContent = storedNumber;
+    if (firstNumber == '' || !calculationInProgress) {
+        firstNumber += number.value;
+        currentOperand.textContent = firstNumber;
+    } else {
+        storedNumber += number.value;
+        currentOperand.textContent = storedNumber;
+    }
+    
   })
 });
 
+
+
 operatorButtons.forEach((operator => {
   operator.addEventListener('click', function() {
-    if (firstNumber && storedNumber) {
-      displayResult();
-    }
-    // save the first number
-    firstNumber = storedNumber;
+    calculationInProgress = true;
+    displayResult();
+    // firstNumber = storedNumber;
 
     // get the operator that was clicked
     clickedOperator = operator.textContent;
-    previousOperand.textContent = storedNumber + clickedOperator;
+    previousOperand.textContent = firstNumber + clickedOperator;
     storedNumber = '';
 
     // console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
@@ -86,7 +93,7 @@ operatorButtons.forEach((operator => {
 }));
 
 equalsKey.addEventListener('click', function() {
-  displayResult();
+  calculate();
 });
 
 deleteButton.addEventListener('click', function() {
@@ -98,22 +105,36 @@ deleteButton.addEventListener('click', function() {
   });
 
 function displayResult() {
-  result = operate(parseFloat(firstNumber), parseFloat(storedNumber), clickedOperator)
   // update content of current operation with result and previous operand with the calculation, make storedNumber = result
-  currentOperand.textContent = result;
+//   currentOperand.textContent = result;
   previousOperand.textContent = firstNumber + ' ' + clickedOperator + ' ' + storedNumber;
-  storedNumber = result;
   console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
 };
 
+function calculate() {
+    result = operate(parseFloat(firstNumber), parseFloat(storedNumber), clickedOperator)
+    currentOperand.textContent = result;
+    displayResult()
+    firstNumber = result;
+    calculationInProgress = false;
+}
+
 // Delete button
 function del(){
-    storedNumber = currentOperand.textContent.slice(0,currentOperand.textContent.length-1);
-    currentOperand.textContent = storedNumber;
+    if (calculationInProgress) {
+        storedNumber = currentOperand.textContent.slice(0,currentOperand.textContent.length-1);
+        currentOperand.textContent = storedNumber;
+    } else {
+        firstNumber = currentOperand.textContent.slice(0,currentOperand.textContent.length-1);
+        currentOperand.textContent = firstNumber;
+    }
+    
+
 };
 
-// Clear button... Pressing “clear” should wipe out any existing data.. make sure the user is really starting fresh after pressing “clear”
+// Clear button... Pressing “clear” should wipe out any existing data... make sure the user is really starting fresh after pressing “clear”
 function clearOutput(){
+    firstNumber = '';
     currentOperand.textContent= 0;
     previousOperand.textContent= ' ';
     storedNumber = ' ';
