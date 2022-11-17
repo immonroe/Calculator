@@ -1,11 +1,14 @@
 // DOM 
+const currentOperand = document.querySelector('.current-operand');
+const previousOperand = document.querySelector('.previous-operand');
+
 const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.clear');
 const deleteButton = document.querySelector('.delete')
+const decimalButton = document.querySelector('.decimal')
 const showResult = document.querySelector('.result');
-const currentOperand = document.querySelector('.current-operand');
-const previousOperand = document.querySelector('.previous-operand');
+
 const equalsKey = document.querySelector('.equals-key');
 
 // Add... 
