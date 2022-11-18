@@ -69,7 +69,6 @@ numberButtons.forEach((number) => {
         storedNumber += number.value;
         currentOperand.textContent = storedNumber;
     }
-    
   })
 });
 
@@ -79,16 +78,13 @@ operatorButtons.forEach((operator => {
   operator.addEventListener('click', function() {
     calculationInProgress = true;
     displayResult();
-    // firstNumber = storedNumber;
 
     // get the operator that was clicked
     clickedOperator = operator.textContent;
     previousOperand.textContent = firstNumber + clickedOperator;
     storedNumber = '';
-
     // console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
     // console.log(clickedOperator);
-
   })
 }));
 
@@ -128,8 +124,6 @@ function del(){
         firstNumber = currentOperand.textContent.slice(0,currentOperand.textContent.length-1);
         currentOperand.textContent = firstNumber;
     }
-    
-
 };
 
 // Clear button... Pressing “clear” should wipe out any existing data... make sure the user is really starting fresh after pressing “clear”
