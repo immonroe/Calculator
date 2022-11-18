@@ -107,7 +107,7 @@ deleteButton.addEventListener('click', function() {
 function displayResult() {
   // update content of current operation with result and previous operand with the calculation, make storedNumber = result
 //   currentOperand.textContent = result;
-  previousOperand.textContent = firstNumber + ' ' + clickedOperator + ' ' + storedNumber;
+  previousOperand.textContent = firstNumber + ' ' + clickedOperator + ' ' + storedNumber + ' ' + '=';
   console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
 };
 
