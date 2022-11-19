@@ -140,11 +140,11 @@ function clearOutput(){
 };
 
 // You should round answers with long decimals so that they don’t overflow the screen.
-function inputDecimal(dot) {
+function inputDecimal() {
     // If the `displayValue` property does not contain a decimal point
-    if (!currentOperand.textContent.includes(dot)) {
+    if (!currentOperand.textContent.includes('.')) {
       // Append the decimal point
-      currentOperand.textContent += dot;
+      currentOperand.textContent += '.';
     }
   }
 
