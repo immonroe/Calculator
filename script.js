@@ -99,6 +99,11 @@ deleteButton.addEventListener('click', function() {
   clearButton.addEventListener('click', function() {
     clearOutput();
   });
+  
+  decimalButton.addEventListener('click', function() {
+    inputDecimal(currentOperand.value);
+  });
+  
 
 function displayResult() {
   // update content of current operation with result and previous operand with the calculation, make storedNumber = result
@@ -135,11 +140,13 @@ function clearOutput(){
 };
 
 // You should round answers with long decimals so that they don’t overflow the screen.
-// currentOperand.textContent.length
-// previousOperand.textContent.length
-// .toFixed()
-// https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
-
+function inputDecimal(dot) {
+    // If the `displayValue` property does not contain a decimal point
+    if (!currentOperand.textContent.includes(dot)) {
+      // Append the decimal point
+      currentOperand.textContent += dot;
+    }
+  }
 
 // Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
 
