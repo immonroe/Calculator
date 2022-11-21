@@ -101,7 +101,7 @@ deleteButton.addEventListener('click', function() {
   });
   
   decimalButton.addEventListener('click', function() {
-    inputDecimal(currentOperand.value);
+    inputDecimal();
   });
   
 
