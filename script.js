@@ -102,6 +102,8 @@ deleteButton.addEventListener('click', function() {
   
   decimalButton.addEventListener('click', function() {
     inputDecimal();
+    // inputDecimal(target.value); find way to implement into my code
+    // updateDisplay();
   });
   
 
