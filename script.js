@@ -58,13 +58,6 @@ let result = "";
 previousOperand.textContent = " ";
 currentOperand.textContent = 0;
 let calculationInProgress = false;
-// let newCalculation = false;
-
-// Add ability to show decimal point being added live as compared to showing the decimal when another number is addeed after it
-// function updateDisplay() {
-//   const display = document.querySelector('.calculator-screen');
-//   display.value = calculator.displayValue;
-// }
 
 numberButtons.forEach((number) => {
   number.addEventListener("click", function () {
@@ -123,7 +116,7 @@ function calculate() {
   displayResult();
   firstNumber = result;
   calculationInProgress = false;
-  newCalculation = true;
+  console.log(result)
 }
 
 // Delete button
@@ -152,7 +145,6 @@ function clearOutput() {
 }
 
 // You should round answers with long decimals so that they don’t overflow the screen.
-
 function inputDecimal() {
   if (calculationInProgress) {
     if (storedNumber.includes(".")) return;
