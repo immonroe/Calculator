@@ -58,6 +58,12 @@ let result = "";
 previousOperand.textContent = " ";
 currentOperand.textContent = 0;
 let calculationInProgress = false;
+// let newCalculation = false;
+
+function updateDisplay() {
+  const display = document.querySelector('.calculator-screen');
+  display.value = calculator.displayValue;
+}
 
 numberButtons.forEach((number) => {
   number.addEventListener("click", function () {
@@ -119,6 +125,10 @@ function calculate() {
   displayResult();
   firstNumber = result;
   calculationInProgress = false;
+  newCalculation = true;
+  // if (newCalculation = true) {
+  //   currentOperand.textContent = currentOperand..textContent.slice(0, -1)
+  // }
 }
 
 // Delete button
@@ -159,5 +169,6 @@ function inputDecimal() {
 }
 
 // Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
+
 
 // Keyboard support
