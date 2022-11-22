@@ -99,8 +99,6 @@ clearButton.addEventListener("click", function () {
 
 decimalButton.addEventListener("click", function () {
   inputDecimal();
-  // inputDecimal(target.value); //find way to implement into my code
-  // updateDisplay();
 });
 
 function displayResult() {
@@ -158,7 +156,6 @@ function inputDecimal() {
     if (firstNumber.includes(".")) return;
     firstNumber += ".";
   }
-  updateDisplay();
 }
 
 // Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
