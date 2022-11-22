@@ -60,6 +60,7 @@ currentOperand.textContent = 0;
 let calculationInProgress = false;
 // let newCalculation = false;
 
+// Add ability to show decimal point being added live as compared to showing the decimal when another number is addeed after it
 // function updateDisplay() {
 //   const display = document.querySelector('.calculator-screen');
 //   display.value = calculator.displayValue;
@@ -86,8 +87,6 @@ operatorButtons.forEach((operator) => {
     clickedOperator = operator.textContent;
     previousOperand.textContent = firstNumber + clickedOperator;
     storedNumber = "";
-    // console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
-    // console.log(clickedOperator);
   });
 });
 
@@ -109,7 +108,6 @@ decimalButton.addEventListener("click", function () {
 
 function displayResult() {
   // update content of current operation with result and previous operand with the calculation, make storedNumber = result
-  //   currentOperand.textContent = result;
   previousOperand.textContent =
     firstNumber + " " + clickedOperator + " " + storedNumber + " " + "=";
   console.log("FirstNumber" + firstNumber + "Stored" + storedNumber);
@@ -126,9 +124,6 @@ function calculate() {
   firstNumber = result;
   calculationInProgress = false;
   newCalculation = true;
-  // if (newCalculation = true) {
-  //   currentOperand.textContent = currentOperand..textContent.slice(0, -1)
-  // }
 }
 
 // Delete button
