@@ -60,10 +60,10 @@ currentOperand.textContent = 0;
 let calculationInProgress = false;
 // let newCalculation = false;
 
-function updateDisplay() {
-  const display = document.querySelector('.calculator-screen');
-  display.value = calculator.displayValue;
-}
+// function updateDisplay() {
+//   const display = document.querySelector('.calculator-screen');
+//   display.value = calculator.displayValue;
+// }
 
 numberButtons.forEach((number) => {
   number.addEventListener("click", function () {
