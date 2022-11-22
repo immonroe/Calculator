@@ -43,7 +43,12 @@ function operate(num1, num2, operator) {
     case "*":
       return multiply(num1, num2);
     case "/":
-      return divide(num1, num2);
+      // Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
+      if(storedNumber === '0') {
+        return "ERROR"
+      } else {
+        return divide(num1, num2);
+      }
   }
 }
 
@@ -154,8 +159,5 @@ function inputDecimal() {
     firstNumber += ".";
   }
 }
-
-// Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
-
 
 // Keyboard support
