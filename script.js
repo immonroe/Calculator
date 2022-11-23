@@ -43,7 +43,12 @@ function operate(num1, num2, operator) {
     case "*":
       return multiply(num1, num2);
     case "/":
-      return divide(num1, num2);
+      // Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
+      if(storedNumber === '0') {
+        return "ERROR"
+      } else {
+        return divide(num1, num2);
+      }
   }
 }
 
@@ -58,12 +63,6 @@ let result = "";
 previousOperand.textContent = " ";
 currentOperand.textContent = 0;
 let calculationInProgress = false;
-// let newCalculation = false;
-
-// function updateDisplay() {
-//   const display = document.querySelector('.calculator-screen');
-//   display.value = calculator.displayValue;
-// }
 
 numberButtons.forEach((number) => {
   number.addEventListener("click", function () {
@@ -86,8 +85,6 @@ operatorButtons.forEach((operator) => {
     clickedOperator = operator.textContent;
     previousOperand.textContent = firstNumber + clickedOperator;
     storedNumber = "";
-    // console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
-    // console.log(clickedOperator);
   });
 });
 
@@ -109,7 +106,6 @@ decimalButton.addEventListener("click", function () {
 
 function displayResult() {
   // update content of current operation with result and previous operand with the calculation, make storedNumber = result
-  //   currentOperand.textContent = result;
   previousOperand.textContent =
     firstNumber + " " + clickedOperator + " " + storedNumber + " " + "=";
   console.log("FirstNumber" + firstNumber + "Stored" + storedNumber);
@@ -121,14 +117,16 @@ function calculate() {
     parseFloat(storedNumber),
     clickedOperator
   );
-  currentOperand.textContent = result;
+  currentOperand.textContent = roundResult(result);
+  storedNumber.textContent = roundResult(result);
   displayResult();
-  firstNumber = result;
+  firstNumber = roundResult(result);
   calculationInProgress = false;
-  newCalculation = true;
-  // if (newCalculation = true) {
-  //   currentOperand.textContent = currentOperand..textContent.slice(0, -1)
-  // }
+  console.log(roundResult(result))
+}
+
+function roundResult(number) {
+  return Math.round(number * 1000) / 1000
 }
 
 // Delete button
@@ -157,7 +155,6 @@ function clearOutput() {
 }
 
 // You should round answers with long decimals so that they don’t overflow the screen.
-
 function inputDecimal() {
   if (calculationInProgress) {
     if (storedNumber.includes(".")) return;
@@ -167,8 +164,5 @@ function inputDecimal() {
     firstNumber += ".";
   }
 }
-
-// Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
-
 
 // Keyboard support
