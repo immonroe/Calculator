@@ -118,10 +118,11 @@ function calculate() {
     clickedOperator
   );
   currentOperand.textContent = roundResult(result);
+  storedNumber.textContent = roundResult(result);
   displayResult();
-  firstNumber = result;
+  firstNumber = roundResult(result);
   calculationInProgress = false;
-  console.log(result)
+  console.log(roundResult(result))
 }
 
 function roundResult(number) {
