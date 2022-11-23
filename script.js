@@ -128,6 +128,7 @@ function calculate() {
     parseFloat(storedNumber),
     clickedOperator
   );
+  // can more be added to the round function to make less code?
   currentOperand.textContent = roundResult(result);
   storedNumber.textContent = roundResult(result);
   displayResult();
