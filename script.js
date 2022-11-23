@@ -31,20 +31,20 @@ function divide(a, b) {
   return a / b;
 }
 
-function operate(num1, num2, operator) {
+function operate(a, b, operator) {
   switch (operator) {
     case "+":
-      return add(num1, num2);
+      return add(a, b);
     case "-":
-      return subtract(num1, num2);
+      return subtract(a, b);
     case "*":
-      return multiply(num1, num2);
+      return multiply(a, b);
     case "/":
       // Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
       if(storedNumber === '0') {
         return "ERROR"
       } else {
-        return divide(num1, num2);
+        return divide(a, b);
       }
   }
 }
