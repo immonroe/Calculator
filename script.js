@@ -31,9 +31,6 @@ function divide(a, b) {
   return a / b;
 }
 
-// Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
-// switch statement is much better than seperate const/functions for each operator - cleaner code.
-
 function operate(num1, num2, operator) {
   switch (operator) {
     case "+":
@@ -52,11 +49,7 @@ function operate(num1, num2, operator) {
   }
 }
 
-//Create the functions that populate the display when you click the
-//number buttons… you should be storing the ‘display value’ in a variable somewhere
-//for use in the next step.
-
-let storedNumber = ""; // stored numbers are giving an error when trying to add operators to them to make new calculations
+let storedNumber = "";
 let clickedOperator = "";
 let firstNumber = "";
 let result = "";
@@ -64,6 +57,7 @@ previousOperand.textContent = " ";
 currentOperand.textContent = 0;
 let calculationInProgress = false;
 
+// event listeners for numberButtons and operatorButtons
 numberButtons.forEach((number) => {
   number.addEventListener("click", function () {
     if (firstNumber == "" || !calculationInProgress) {
@@ -88,6 +82,7 @@ operatorButtons.forEach((operator) => {
   });
 });
 
+// Event listeners for operator buttons
 equalsKey.addEventListener("click", function () {
   calculate();
 });
@@ -111,6 +106,22 @@ function displayResult() {
   console.log("FirstNumber" + firstNumber + "Stored" + storedNumber);
 }
 
+function inputDecimal() {
+  if (calculationInProgress) {
+    if (storedNumber.includes(".")) return;
+    storedNumber += ".";
+  } else {
+    if (firstNumber.includes(".")) return;
+    firstNumber += ".";
+  }
+}
+
+// Round long decimals
+function roundResult(number) {
+  return Math.round(number * 1000) / 1000
+}
+
+// operator functions
 function calculate() {
   result = operate(
     parseFloat(firstNumber),
@@ -125,11 +136,6 @@ function calculate() {
   console.log(roundResult(result))
 }
 
-function roundResult(number) {
-  return Math.round(number * 1000) / 1000
-}
-
-// Delete button
 function del() {
   if (calculationInProgress) {
     storedNumber = currentOperand.textContent.slice(
@@ -146,23 +152,11 @@ function del() {
   }
 }
 
-// Clear button... Pressing “clear” should wipe out any existing data... make sure the user is really starting fresh after pressing “clear”
 function clearOutput() {
   firstNumber = "";
   currentOperand.textContent = 0;
   previousOperand.textContent = " ";
   storedNumber = " ";
-}
-
-// You should round answers with long decimals so that they don’t overflow the screen.
-function inputDecimal() {
-  if (calculationInProgress) {
-    if (storedNumber.includes(".")) return;
-    storedNumber += ".";
-  } else {
-    if (firstNumber.includes(".")) return;
-    firstNumber += ".";
-  }
 }
 
 // Keyboard support
