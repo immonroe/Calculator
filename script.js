@@ -11,6 +11,25 @@ const showResult = document.querySelector(".result");
 
 const equalsKey = document.querySelector(".equals-key");
 
+// Keyboard support
+
+function handleKeyboardInput(e) {
+  if (e.key >= 0 && e.key <= 9) appendNumber(e.key) // create function for appending numbers
+  if (e.key === '.') inputDecimal()
+  if (e.key === '=' || e.key === 'Enter') calculate()
+  if (e.key === 'Backspace') del()
+  if (e.key === 'Escape') clear()
+  if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/')
+    setOperation(convertOperator(e.key))
+}
+
+function convertOperator(keyboardOperator) {
+  if (keyboardOperator === '/') return '÷'
+  if (keyboardOperator === '*') return '×'
+  if (keyboardOperator === '-') return '−'
+  if (keyboardOperator === '+') return '+'
+}
+
 // Add...
 function add(a, b) {
   return a + b;
@@ -158,23 +177,4 @@ function clearOutput() {
   currentOperand.textContent = 0;
   previousOperand.textContent = " ";
   storedNumber = " ";
-}
-
-// Keyboard support
-
-function handleKeyboardInput(e) {
-  if (e.key >= 0 && e.key <= 9) appendNumber(e.key)
-  if (e.key === '.') appendPoint()
-  if (e.key === '=' || e.key === 'Enter') evaluate()
-  if (e.key === 'Backspace') deleteNumber()
-  if (e.key === 'Escape') clear()
-  if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/')
-    setOperation(convertOperator(e.key))
-}
-
-function convertOperator(keyboardOperator) {
-  if (keyboardOperator === '/') return '÷'
-  if (keyboardOperator === '*') return '×'
-  if (keyboardOperator === '-') return '−'
-  if (keyboardOperator === '+') return '+'
 }
