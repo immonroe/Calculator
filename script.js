@@ -10,6 +10,8 @@ const decimalButton = document.querySelector(".decimal");
 const showResult = document.querySelector(".result");
 
 const equalsKey = document.querySelector(".equals-key");
+window.addEventListener('keydown', handleKeyboardInput)
+
 
 // Keyboard support
 
@@ -20,7 +22,7 @@ function handleKeyboardInput(e) {
   if (e.key === 'Backspace') del()
   if (e.key === 'Escape') clear()
   if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/')
-    setOperation(convertOperator(e.key))
+    setOperation(convertOperator(e.key)) // 
 }
 
 function convertOperator(keyboardOperator) {
