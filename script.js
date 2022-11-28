@@ -10,27 +10,6 @@ const decimalButton = document.querySelector(".decimal");
 const showResult = document.querySelector(".result");
 
 const equalsKey = document.querySelector(".equals-key");
-window.addEventListener('keydown', handleKeyboardInput)
-
-
-// Keyboard support
-
-function handleKeyboardInput(e) {
-  if (e.key >= 0 && e.key <= 9) appendNumber(e.key) // create function for appending numbers
-  if (e.key === '.') inputDecimal()
-  if (e.key === '=' || e.key === 'Enter') calculate()
-  if (e.key === 'Backspace') del()
-  if (e.key === 'Escape') clear()
-  if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/')
-    setOperation(convertOperator(e.key)) // 
-}
-
-function convertOperator(keyboardOperator) {
-  if (keyboardOperator === '/') return '÷'
-  if (keyboardOperator === '*') return '×'
-  if (keyboardOperator === '-') return '−'
-  if (keyboardOperator === '+') return '+'
-}
 
 // Add...
 function add(a, b) {
@@ -149,7 +128,6 @@ function calculate() {
     parseFloat(storedNumber),
     clickedOperator
   );
-  // can more be added to the round function to make less code?
   currentOperand.textContent = roundResult(result);
   storedNumber.textContent = roundResult(result);
   displayResult();
