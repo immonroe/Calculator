@@ -11,6 +11,19 @@ const showResult = document.querySelector(".result");
 
 const equalsKey = document.querySelector(".equals-key");
 
+window.addEventListener('keydown', function(event) {
+  console.log(event)
+  if (event.key >= 0 && event.key <= 9) document.getElementById(event.key).click();
+  if (event.key === '/') document.getElementById('divide').click();
+  if (event.key === '*') document.getElementById('multiply').click();
+  if (event.key === '-') document.getElementById('subtract').click();
+  if (event.key === '+') document.getElementById('add').click();
+  if (event.key === '=' || event.key === 'Enter') document.getElementById('equal').click();
+  if (event.key === 'Backspace') document.getElementById('delete').click();
+  if (event.key === 'Escape') document.getElementById('clear').click();
+
+})
+
 // Add...
 function add(a, b) {
   return a + b;
@@ -56,10 +69,16 @@ let result = "";
 previousOperand.textContent = " ";
 currentOperand.textContent = 0;
 let calculationInProgress = false;
+let calculated = false;
 
 // event listeners for numberButtons and operatorButtons
 numberButtons.forEach((number) => {
   number.addEventListener("click", function () {
+    if (calculated) {
+      clearOutput();
+      calculated = false;
+    }
+
     if (firstNumber == "" || !calculationInProgress) {
       firstNumber += number.value;
       currentOperand.textContent = firstNumber;
@@ -103,7 +122,6 @@ function displayResult() {
   // update content of current operation with result and previous operand with the calculation, make storedNumber = result
   previousOperand.textContent =
     firstNumber + " " + clickedOperator + " " + storedNumber + " " + "=";
-  console.log("FirstNumber" + firstNumber + "Stored" + storedNumber);
 }
 
 function inputDecimal() {
@@ -133,7 +151,7 @@ function calculate() {
   displayResult();
   firstNumber = roundResult(result);
   calculationInProgress = false;
-  console.log(roundResult(result))
+  calculated = true;
 }
 
 function del() {

@@ -20,7 +20,9 @@ main {
 
 .calculator {
   display: grid;
-  border-radius: 5px;
+  border-radius: 15px;
+  background-color: black;
+  border: 20px solid black;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,15 +33,17 @@ main {
 
 .two-cols {
   grid-column: span 2;
+  margin-top: 20px;
 }
 
 .calculator>button {
+  gap: 10px;
   cursor: pointer;
   color: black;
   font-weight: bold;
   font-size: 2.25rem;
   outline: none;
-  background-color: white;
+  background-color: whitesmoke;
   opacity: 80%;
 }
 
