@@ -11,6 +11,7 @@ const showResult = document.querySelector(".result");
 
 const equalsKey = document.querySelector(".equals-key");
 
+// keyboard support
 window.addEventListener('keydown', function(event) {
   console.log(event)
   if (event.key >= 0 && event.key <= 9) document.getElementById(event.key).click();
@@ -21,7 +22,6 @@ window.addEventListener('keydown', function(event) {
   if (event.key === '=' || event.key === 'Enter') document.getElementById('equal').click();
   if (event.key === 'Backspace') document.getElementById('delete').click();
   if (event.key === 'Escape') document.getElementById('clear').click();
-
 })
 
 // Add...
@@ -50,15 +50,13 @@ function operate(a, b, operator) {
       return add(a, b);
     case "-":
       return subtract(a, b);
-    case "*":
+    case "×":
       return multiply(a, b);
-    case "/":
-      // Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
-      if(storedNumber === '0') {
-        return "ERROR"
-      } else {
-        return divide(a, b);
-      }
+    case "÷":
+        if (b === 0) return null
+      else return divide(a, b)
+    default:
+      return null
   }
 }
 
@@ -86,6 +84,8 @@ numberButtons.forEach((number) => {
       storedNumber += number.value;
       currentOperand.textContent = storedNumber;
     }
+    if (currentOperand.textContent.length >= 15) {
+    }
   });
 });
 
@@ -93,7 +93,6 @@ operatorButtons.forEach((operator) => {
   operator.addEventListener("click", function () {
     calculationInProgress = true;
     displayResult();
-
     // get the operator that was clicked
     clickedOperator = operator.textContent;
     previousOperand.textContent = firstNumber + clickedOperator;
