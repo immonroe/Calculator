@@ -11,7 +11,7 @@ const showResult = document.querySelector(".result");
 
 const equalsKey = document.querySelector(".equals-key");
 
-// keyboard support
+// Keyboard support
 window.addEventListener('keydown', function(event) {
   console.log(event)
   if (event.key >= 0 && event.key <= 9) document.getElementById(event.key).click();
@@ -44,6 +44,7 @@ function divide(a, b) {
   return a / b;
 }
 
+// Switch operators
 function operate(a, b, operator) {
   switch (operator) {
     case "+":
@@ -60,6 +61,7 @@ function operate(a, b, operator) {
   }
 }
 
+// Default vaules
 let storedNumber = "";
 let clickedOperator = "";
 let firstNumber = "";
@@ -69,7 +71,7 @@ currentOperand.textContent = 0;
 let calculationInProgress = false;
 let calculated = false;
 
-// event listeners for numberButtons and operatorButtons
+// Event listeners for number/operator buttons
 numberButtons.forEach((number) => {
   number.addEventListener("click", function () {
     if (calculated) {
@@ -93,14 +95,14 @@ operatorButtons.forEach((operator) => {
   operator.addEventListener("click", function () {
     calculationInProgress = true;
     displayResult();
-    // get the operator that was clicked
+    // Get the operator that was clicked
     clickedOperator = operator.textContent;
     previousOperand.textContent = firstNumber + clickedOperator;
     storedNumber = "";
   });
 });
 
-// Event listeners for operator buttons
+// Event listeners calling back operate functions
 equalsKey.addEventListener("click", function () {
   calculate();
 });
@@ -118,7 +120,7 @@ decimalButton.addEventListener("click", function () {
 });
 
 function displayResult() {
-  // update content of current operation with result and previous operand with the calculation, make storedNumber = result
+  // Update content of current operation with result and previous operand with the calculation, make storedNumber = result
   previousOperand.textContent =
     firstNumber + " " + clickedOperator + " " + storedNumber + " " + "=";
 }
@@ -138,7 +140,10 @@ function roundResult(number) {
   return Math.round(number * 1000) / 1000
 }
 
-// operator functions
+// Max number length (does not overflow off screen... 15 digits)
+
+
+// Operator functions
 function calculate() {
   result = operate(
     parseFloat(firstNumber),
@@ -153,6 +158,7 @@ function calculate() {
   calculated = true;
 }
 
+// Delete last value entered
 function del() {
   if (calculationInProgress) {
     storedNumber = currentOperand.textContent.slice(
@@ -169,6 +175,7 @@ function del() {
   }
 }
 
+// Clears all current/stored values
 function clearOutput() {
   firstNumber = "";
   currentOperand.textContent = 0;
