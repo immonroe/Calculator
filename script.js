@@ -21,7 +21,6 @@ window.addEventListener('keydown', function(event) {
   if (event.key === '=' || event.key === 'Enter') document.getElementById('equal').click();
   if (event.key === 'Backspace') document.getElementById('delete').click();
   if (event.key === 'Escape') document.getElementById('clear').click();
-
 })
 
 // Add...
@@ -50,9 +49,9 @@ function operate(a, b, operator) {
       return add(a, b);
     case "-":
       return subtract(a, b);
-    case "*":
+    case "×":
       return multiply(a, b);
-    case "/":
+    case "÷":
         if (b === 0) return null
       else return divide(a, b)
     default:
@@ -83,6 +82,10 @@ numberButtons.forEach((number) => {
     } else {
       storedNumber += number.value;
       currentOperand.textContent = storedNumber;
+    }
+
+    if (currentOperand.textContent.length >= 15) {
+
     }
   });
 });
