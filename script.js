@@ -56,8 +56,6 @@ function operate(a, b, operator) {
     case "÷":
         if (b === 0) return null
       else return divide(a, b)
-    default:
-      return null
   }
 }
 
