@@ -140,7 +140,15 @@ function roundResult(number) {
 }
 
 // Max number length (does not overflow off screen... 15 digits)
-
+function digitMax() {
+  console.log(currentOperand.textContent.length)
+  if (currentOperand.textContent.length >= 15) {
+      alert('Too many digits!') 
+      return true;
+  } else {
+      return false;
+  }
+}
 
 // Operator functions
 function calculate() {
