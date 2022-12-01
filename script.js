@@ -97,6 +97,7 @@ operatorButtons.forEach((operator) => {
     clickedOperator = operator.textContent;
     previousOperand.textContent = firstNumber + clickedOperator;
     storedNumber = "";
+    calculated = false;
   });
 });
 
