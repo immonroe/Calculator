@@ -53,12 +53,10 @@ function operate(a, b, operator) {
     case "*":
       return multiply(a, b);
     case "/":
-      // Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
-      if(storedNumber === '0') {
-        return "ERROR"
-      } else {
-        return divide(a, b);
-      }
+        if (b === 0) return null
+      else return divide(a, b)
+    default:
+      return null
   }
 }
 
@@ -152,6 +150,7 @@ function calculate() {
   firstNumber = roundResult(result);
   calculationInProgress = false;
   calculated = true;
+  console.log(result)
 }
 
 function del() {
