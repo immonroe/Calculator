@@ -11,6 +11,7 @@ const showResult = document.querySelector(".result");
 
 const equalsKey = document.querySelector(".equals-key");
 
+// keyboard support
 window.addEventListener('keydown', function(event) {
   console.log(event)
   if (event.key >= 0 && event.key <= 9) document.getElementById(event.key).click();
@@ -83,9 +84,7 @@ numberButtons.forEach((number) => {
       storedNumber += number.value;
       currentOperand.textContent = storedNumber;
     }
-
     if (currentOperand.textContent.length >= 15) {
-
     }
   });
 });
@@ -94,7 +93,6 @@ operatorButtons.forEach((operator) => {
   operator.addEventListener("click", function () {
     calculationInProgress = true;
     displayResult();
-
     // get the operator that was clicked
     clickedOperator = operator.textContent;
     previousOperand.textContent = firstNumber + clickedOperator;
@@ -153,7 +151,6 @@ function calculate() {
   firstNumber = roundResult(result);
   calculationInProgress = false;
   calculated = true;
-  console.log(result)
 }
 
 function del() {
