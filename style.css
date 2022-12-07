@@ -19,7 +19,7 @@ body {
   height: auto;
 }
 
-.calculator {
+.calculator { /* need to fix issue where background is not sticking to calculator while resizing page... can just add media queries for quick fix */
   display: grid;
   max-width:100%;
   height:auto;
