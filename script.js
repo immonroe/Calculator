@@ -77,14 +77,12 @@ numberButtons.forEach((number) => {
       calculated = false;
     }
 
-    if (firstNumber == "" || !calculationInProgress) {
+    if (firstNumber == "" || !calculationInProgress ) {
       firstNumber += number.value;
       currentOperand.textContent = firstNumber;
     } else {
       storedNumber += number.value;
       currentOperand.textContent = storedNumber;
-    }
-    if (currentOperand.textContent.length >= 15) {
     }
   });
 });
@@ -140,14 +138,12 @@ function roundResult(number) {
 }
 
 // Max number length (does not overflow off screen... 15 digits)
-// function digitMax() {
-//   if (currentOperand.length >= 15) {
-//       alert('Too many digits!') 
-//       return true;
-//   } else {
-//       return false;
-//   }
-// }
+function digitMax(number) {
+  if (currentOperand.textContent.length <= 11) {
+    currentOperand.textContent = currentNum;
+    currentNum = number;
+  }
+}
 
 // Operator functions
 function calculate() {
