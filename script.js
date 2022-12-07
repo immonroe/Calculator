@@ -69,6 +69,7 @@ currentOperand.textContent = 0;
 let calculationInProgress = false;
 let calculated = false;
 
+
 // Event listeners for number/operator buttons
 numberButtons.forEach((number) => {
   number.addEventListener("click", function () {
@@ -77,14 +78,18 @@ numberButtons.forEach((number) => {
       calculated = false;
     }
 
-    if (firstNumber == "" || !calculationInProgress) {
+    if (firstNumber == "" || !calculationInProgress ) {
       firstNumber += number.value;
       currentOperand.textContent = firstNumber;
     } else {
       storedNumber += number.value;
       currentOperand.textContent = storedNumber;
     }
-    if (currentOperand.textContent.length >= 15) {
+
+    if (previousOperand.textContent.length || currentOperand.textContent.length <= 11 ) {
+      currentOperand.textContent = currentOperand.textContent.slice(0,10);
+    } else {
+      
     }
   });
 });
@@ -136,18 +141,8 @@ function inputDecimal() {
 
 // Round long decimals
 function roundResult(number) {
-  return Math.round(number * 1000) / 1000
+  return Math.round(number * 10000) / 10000
 }
-
-// Max number length (does not overflow off screen... 15 digits)
-// function digitMax() {
-//   if (currentOperand.length >= 15) {
-//       alert('Too many digits!') 
-//       return true;
-//   } else {
-//       return false;
-//   }
-// }
 
 // Operator functions
 function calculate() {
