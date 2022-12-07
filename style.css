@@ -15,15 +15,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100vw;
-  height: auto;
 }
 
-.calculator { /* need to fix issue where background is not sticking to calculator while resizing page... can just add media queries for quick fix */
+.calculator {
   display: grid;
-  max-width:100%;
-  height:auto;
-  max-height:100%;
+  margin-top: 20px;
   border-radius: 15px;
   background-color: black;
   padding: 20px;
@@ -82,4 +78,34 @@ body {
 .calculator-screen .current-operand {
   font-size: 3rem;
   padding-top: 5px;
+}
+
+@media (max-width: 575.98px) {
+  .calculator {
+    grid-template-columns: repeat(4, 90px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 100px);
+  }
+  .calculator-screen .previous-operand {
+    font-size: 1.25rem;
+  }
+
+  .calculator-screen .current-operand {
+    font-size: 2.1rem;
+    padding-top: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .calculator {
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: minmax(50px, auto) repeat(5, 100px);
+  }
+  .calculator-screen .previous-operand {
+    font-size: 1.125rem;
+  }
+
+  .calculator-screen .current-operand {
+    font-size: 2rem;
+    padding-top: 5px;
+  }
 }

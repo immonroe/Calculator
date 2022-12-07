@@ -86,8 +86,8 @@ numberButtons.forEach((number) => {
       currentOperand.textContent = storedNumber;
     }
 
-    if (previousOperand.textContent.length || currentOperand.textContent.length <= 11 ) {
-      currentOperand.textContent = currentOperand.textContent.slice(0,10);
+    if (previousOperand.textContent.length || currentOperand.textContent.length <= 7 ) {
+      currentOperand.textContent = currentOperand.textContent.slice(0,7);
     } else {
       
     }
