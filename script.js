@@ -87,7 +87,7 @@ numberButtons.forEach((number) => {
     }
 
     if (previousOperand.textContent.length || currentOperand.textContent.length <= 11 ) {
-      currentOperand.textContent = currentOperand.textContent.slice(0,15);
+      currentOperand.textContent = currentOperand.textContent.slice(0,10);
     } else {
       
     }
