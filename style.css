@@ -36,6 +36,15 @@ main {
   margin-top: 20px;
 }
 
+#clear, #delete {
+  background-color: rgb(245, 229, 156);
+}
+
+#divide, #multiply, #add, #subtract{
+  color: white;
+  background-color: black;
+}
+
 .calculator>button {
   gap: 10px;
   cursor: pointer;
