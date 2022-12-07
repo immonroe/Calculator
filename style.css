@@ -8,25 +8,25 @@
 body {
   margin: 0;
   padding: 0;
-
   font-family: sans-serif;
 }
 
-main {
+.flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  width:100vw;
+  height: auto;
 }
 
 .calculator {
   display: grid;
+  max-width:100%;
+  height:auto;
+  max-height:100%;
   border-radius: 15px;
   background-color: black;
   border: 20px solid black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   grid-template-columns: repeat(4, 125px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
