@@ -26,7 +26,7 @@ body {
   max-height:100%;
   border-radius: 15px;
   background-color: black;
-  border: 20px solid black;
+  padding: 20px;
   grid-template-columns: repeat(4, 125px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
