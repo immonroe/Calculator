@@ -136,7 +136,7 @@ function inputDecimal() {
 
 // Round long decimals
 function roundResult(number) {
-  return Math.round(number * 1000) / 1000
+  return Math.round(number * 10000) / 10000
 }
 
 // Max number length (does not overflow off screen... 15 digits)
