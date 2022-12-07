@@ -8,25 +8,25 @@
 body {
   margin: 0;
   padding: 0;
-
   font-family: sans-serif;
 }
 
-main {
+.flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  width:100vw;
+  height: auto;
 }
 
-.calculator {
+.calculator { /* need to fix issue where background is not sticking to calculator while resizing page... can just add media queries for quick fix */
   display: grid;
+  max-width:100%;
+  height:auto;
+  max-height:100%;
   border-radius: 15px;
   background-color: black;
   border: 20px solid black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   grid-template-columns: repeat(4, 125px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
@@ -34,6 +34,15 @@ main {
 .two-cols {
   grid-column: span 2;
   margin-top: 20px;
+}
+
+#clear, #delete {
+  background-color: rgb(245, 229, 156);
+}
+
+#divide, #multiply, #add, #subtract{
+  color: white;
+  background-color: black;
 }
 
 .calculator>button {
