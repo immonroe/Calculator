@@ -13,7 +13,6 @@ const equalsKey = document.querySelector(".equals-key");
 
 // Keyboard support
 window.addEventListener('keydown', function(event) {
-  console.log(event)
   if (event.key >= 0 && event.key <= 9) document.getElementById(event.key).click();
   if (event.key === '/') document.getElementById('divide').click();
   if (event.key === '*') document.getElementById('multiply').click();
